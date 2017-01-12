@@ -1,0 +1,26 @@
+set term epslatex standalone color colortex 11
+set output 'GSfig.tex'
+
+set size 1,.9
+set xlabel '$\mathrm{n}^\circ$ of bins'
+set ylabel 'Capacity (bits)'
+set xrange [10:60]
+set yrange [.8:1]
+set key box bottom right
+
+set style line 1 lw 2 lt 1 lc rgb '#FF8C00' # dark orange
+set style line 4 lw 2 lt 2 lc rgb '#FF8C00' # dark orange dashed
+set style line 2 lw 2 lt 1 lc rgb '#228B22' # forestgreen
+set style line 5 lw 2 lt 2 lc rgb '#228B22' # forestgreen dashed
+set style line 3 lw 3 lt 1 lc rgb '#DC143C' # crimson
+set style line 6 lw 3 lt 2 lc rgb '#DC143C' # crimson dashed
+
+plot "GSstudy12.dat" u 9:7 with lines ls 1 title 'ADF-ASI', \
+     "GSstudy13.dat" u 9:7 with lines ls 2 title 'ADF-NSM', \
+     "GSstudy23.dat" u 9:7 with lines ls 3 title 'ASI-NSM', \
+     "GSstudy12R.dat" u 9:7 with lines ls 4 title 'ASI-NSM Randomized', \
+     "GSstudy13R.dat" u 9:7 with lines ls 5 title 'ASI-NSM Randomized', \
+     "GSstudy23R.dat" u 9:7 with lines ls 6 title 'ASI-NSM Randomized'    
+   
+  
+

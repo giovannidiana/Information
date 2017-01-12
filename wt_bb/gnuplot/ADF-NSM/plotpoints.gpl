@@ -1,0 +1,22 @@
+set term epslatex standalone color colortex 11
+set output 'plotpoints.tex'
+
+set size 1,.9
+#set xrange [0.08:0.2]
+set xrange [0.:0.5]
+set xlabel '$MI(ADF,NSM)$'
+set ylabel 'C'
+set yrange [0:2]
+set key box outside above spacing 1.2
+
+set style line 1 lc rgb 'black' pt 5 ps 1  # boxF
+set style line 2 lc rgb 'black' pt 4 ps 1  # box 
+set style line 3 lc rgb 'black' pt 7 ps 1  # circF
+set style line 4 lc rgb 'black' pt 6 ps 1  # circ 
+set style line 5 lc rgb 'black' pt 5 ps 1
+set style line 6 lc rgb 'black' pt 11 ps 1
+
+plot "../../../gnuplot/ADF-NSM/results_QL196_50.dat" u 8:7 ls 1 title 'WT GS=50', \
+	     "results_QL196_GS50.dat" u 8:7 ls 2 title 'WT batches GS=50', \
+	     "../../../gnuplot/ADF-NSM/results_QL196_GS20.dat" u 8:7 ls 3 title 'WT GS=20', \
+	     "results_QL196_GS20.dat" u 8:7 ls 4 title 'WT batches, GS=20'

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+filename=$1
+
+gnuplot $filename".gpl"
+latex $filename".tex"
+dvips -E -o $filename".eps"  $filename".dvi"
+epstopdf $filename".eps"
+rm *.tex *.eps *.aux *.log 

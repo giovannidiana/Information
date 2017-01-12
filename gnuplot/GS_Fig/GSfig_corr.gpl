@@ -1,0 +1,21 @@
+set term epslatex standalone color colortex 11
+set output 'GSfig_corr.tex'
+
+set size 1,.9
+set xlabel '$\mathrm{n}^\circ$ of bins'
+set ylabel '$MI(ADF,ASI)$ (bits)'
+set yrange [0.:.3]
+set key box at 155,.1
+
+set style line 1 lw 2 lt 1 lc rgb '#FF8C00' # dark orange
+set style line 2 lw 2 lt 1 lc rgb '#228B22' # forestgreen
+set style line 3 lw 3 lt 1 lc rgb '#DC143C' # crimson
+set style line 4 lc rgb '#800080' pt 12 ps 3
+
+plot "GSstudy_binned.dat" u 9:8 with lines ls 1 title 'Binned KDE', \
+     "GSstudy_unbinned.dat" u 9:8 with lines ls 2 title 'Unbinned KDE', \
+     "GSstudy_rand_binned.dat" u 9:8 with lines ls 3 title 'Randomized data'
+    
+   
+  
+

@@ -1,0 +1,24 @@
+set term epslatex standalone color colortex 11
+set output 'plotpoints.tex'
+
+set size 1,.9
+#set xrange [0.08:0.2]
+set xrange [0.:0.5]
+set xlabel '$MI(ADF,ASI)$'
+set ylabel 'C'
+set yrange [0:2]
+set key box outside above spacing 1.2
+
+set style line 1 lc rgb 'black' pt 7 ps 2   # circle
+set style line 2 lc rgb '#0000FF' pt 6 ps 2  # circle
+set style line 3 lc rgb '#FF0000' pt 8 ps 2  # triangle
+set style line 4 lc rgb '#800080' pt 12 ps 2
+set style line 5 lc rgb 'black' pt 5 ps 1
+set style line 6 lc rgb 'black' pt 11 ps 1
+
+plot "<echo '0.105306 0.535848'"   with points ls 1 title 'WT', \
+     "<echo '0.103089 0.650272'"   with points ls 2 title 'tph-1(-)', \
+     "<echo '0.0858493 0.208438'" with points ls 3 title 'daf-7(-)', \
+     "<echo '0.122075 0.34929'" with points ls 4 title 'tph-1(-);daf-7(-)', \
+     "results.dat" u 8:7 ls 5 title 'WT from June', \
+     "results.sset.dat" u 8:7 ls 6 title 'WT superset'

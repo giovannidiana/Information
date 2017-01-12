@@ -1,0 +1,6 @@
+#!/bin/bash
+gnuplot plotpoints.gpl
+latex plotpoints.tex
+dvips -E -o plotpoints.eps  plotpoints.dvi
+epstopdf plotpoints.eps 
+rm *.eps *.log *.aux *.tex *.dvi
